@@ -22,7 +22,7 @@ export default (sequelize, DataTypes) => {
       role_id: {
           type: DataTypes.INTEGER,
           allowNull: false
-      },
+      }
     });
     user.associate = (models) => {
       user.hasMany(models.Product, {
