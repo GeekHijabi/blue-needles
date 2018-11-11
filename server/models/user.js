@@ -26,7 +26,7 @@ export default (sequelize, DataTypes) => {
     });
     user.associate = (models) => {
       user.hasMany(models.Product, {
-        foreignKey: 'userId',
+        foreignKey: 'productName',
       });
     };
     return user;
