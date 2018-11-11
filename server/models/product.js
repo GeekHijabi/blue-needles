@@ -1,5 +1,5 @@
 export default (sequelize, DataTypes) => {
-    const products = sequelize.define('Products', {
+    const product = sequelize.define('Product', {
       productName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,12 +25,12 @@ export default (sequelize, DataTypes) => {
         defaultValue: 0
       }
     });
-    products.associate = (models) => {
-        products.belongsTo(models.User, {
+    product.associate = (models) => {
+        product.belongsTo(models.User, {
         foreignKey: 'userId',
         onDelete: 'CASCADE',
       });
     };
-    return products;
+    return product;
   };
   
