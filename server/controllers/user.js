@@ -73,7 +73,7 @@ export default {
           });
         }
         const token = jwt.sign(
-          { id: userDetail.id }
+          { id: userDetail.role_id }
           , secret
           , { expiresIn: '48h' }
         );
@@ -86,24 +86,5 @@ export default {
       }).catch(error => res.status(500).json({
         error: error.message
       }));
-  },
-
-  adminLogIn(req, res) {
-    User.findOne({ where: { role_id: 1} })
-      .then((adminFound) => {
-        if (!adminFound) {
-          return res.status(401).json({
-            error: 'Unauthorized!'
-          });
-        }
-        const { password } = adminFound;
-        return res.status(200)
-          .json({
-            message: 'Signed In as Admin!',
-            password
-          });
-      }).catch(error => res.status(500).json({
-        error: error.message
-      }));
-  }
+   },
 };

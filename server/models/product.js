@@ -15,10 +15,6 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
       views: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -27,7 +23,7 @@ export default (sequelize, DataTypes) => {
     });
     product.associate = (models) => {
         product.belongsTo(models.User, {
-        foreignKey: 'userId',
+        foreignKey: 'productName',
         onDelete: 'CASCADE',
       });
     };
